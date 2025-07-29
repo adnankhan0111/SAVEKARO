@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SaveKaro - Instagram Reel | Story Downloader | Free Story | Reel Saver Website, Download Instagram videos, reels, stories, and IGTV for free. Fast, secure, and easy to use.">
+    <meta name="keywords" content="SaveKaro, Instagram downloader, reel downloader, story saver, IGTV download">
+    <meta name="author" content="SaveKaro">
+    
+    <title>SaveKaro - Instagram Reel | Story Downloader | Free Story | Reel Saver Website</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+   
+    
+       <style>
+        :root {
+            --primary: #E1306C;
+            --primary-dark: #C13584;
+            --secondary: #405DE6;
+            --dark: #262626;
+            --light: #f8f9fa;
+            --gray: #8e8e8e;
+            --light-gray: #dbdbdb;
+            --white: #ffffff;
+            --danger: #ff4d4d;
+            --success: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .logo h1 span {
+            color: var(--primary);
+        }
+        
+        .logo p {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: -5px;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-list li {
+            margin-left: 25px;
+        }
+        
+        .nav-list a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-list a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-cta .btn-small {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background-color: #ff3333;
+            box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 .highlight {
+            color: var(--primary);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .download-form {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .download-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .download-form input:focus {
+            border-color: var(--primary);
+        }
+        
+        .download-form button {
+            border-radius: 0 30px 30px 0;
+        }
+        
+        .supported-formats p {
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .formats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .format-tag {
+            background-color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--dark);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(225, 48, 108, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 30px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .faq-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background-color: var(--light);
+        }
+        
+        .faq-question h3 {
+            font-size: 18px;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            font-weight: 300;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-answer p {
+            padding: 0 0 20px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-brand h2 span {
+            color: var(--primary);
+        }
+        
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Modal */
+        .download-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .format-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .format-option h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .video-formats, .audio-formats {
+            list-style: none;
+        }
+        
+        .video-formats li, .audio-formats li {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .video-formats li:hover, .audio-formats li:hover {
+            background-color: rgba(225, 48, 108, 0.1);
+        }
+        
+        .video-formats li.active, .audio-formats li.active {
+            background-color: rgba(225, 48, 108, 0.2);
+            font-weight: 500;
+        }
+        
+        .confirm-download {
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .download-form {
+                flex-direction: column;
+            }
+            
+            .download-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .download-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+            
+            .format-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 20px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .bar {
+                height: 3px;
+                width: 100%;
+                background-color: var(--dark);
+                transition: all 0.3s;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            .nav.active {
+                transform: translateY(0);
+            }
+            
+            .nav-list {
+                flex-direction: column;
+            }
+            
+            .nav-list li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+               <b>Save<span style="color: red;">Karo</span></b><br/>
+                <span>Best Instagram Reel Saver</span>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">YouTube Downloader</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li class="nav-cta"><a href="#download" class="btn btn-small">Download Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero instagram-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Instagram Reel | Story Downloader, <span class="highlight">Free Story | Reel Saver</span></h1>
+                    <p class="subtitle">Save reels, stories, IGTV and posts in HD quality with SaveKaro</p>
+                    
+                    <div class="download-form">
+                        <input type="text" id="instagram-url" placeholder="Paste Instagram URL here..." required>
+                        <button id="download-btn" class="btn btn-danger">Download Now</button>
+                    </div>
+                    
+                    <div class="supported-formats">
+                        <p>Supported content:</p>
+                        <div class="formats">
+                            <span class="format-tag">Reels</span>
+                            <span class="format-tag">Stories</span>
+                            <span class="format-tag">IGTV</span>
+                            <span class="format-tag">Posts</span>
+                            <span class="format-tag">HD Video</span>
+                            <span class="format-tag">High Quality</span>
+                        </div>
+                        <p>SaveKaro is an online free and fast tool which helps you to download instagram reels video or to save reels video to your device. You can save any reels videos to your phone or computer and view them offline anytime.</p>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="instagram-placeholder">
+                        <div class="instagram-logo"></div>
+                        <div class="instagram-post"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose <span>SaveKaro</span> for Instagram?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon instagram-reels"></div>
+                        <h3>Reels Downloader</h3>
+                        <p>Our Instagram reels viewer and downloader allows users to download Instagram reels video fast and free</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon instagram-stories"></div>
+                        <h3>Story Saver</h3>
+                        <p>Save stories before they disappear (24 hours)</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon instagram-igtv"></div>
+                        <h3>IGTV Videos</h3>
+                        <p>IGTV video are typically lengthy, and if you don't have the time to watch them immediately, you can download them using SaveKaro IGTV downloader. This ensures that you can watch the videos later without needing an internet connection or worrying about the video being deleted.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon instagram-hd"></div>
+                        <h3>HD Quality</h3>
+                        <p>Download Instagram content in its original quality without any loss.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How to <span>Download</span> from Instagram?</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Copy Link</h3>
+                        <p>Copy the URL from Instagram app (tap 3 dots → Copy link)</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Paste URL</h3>
+                        <p>Paste the Instagram link in the input field above</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Choose Format</h3>
+                        <p>Select video quality or download as MP4/MP3</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Download</h3>
+                        <p>Save to your device with one click</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">Instagram Downloader <span>FAQ</span></h2>
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is an Instagram Video Downloader?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SaveKaro is a web-based tool that enables users to download Instagram photo, video, reels, and IGTV videos. It's an ideal solution for those who wish to save content for offline use. SaveKaro <b>Instagram downloader</b> is considered the best tool for downloading from Instagram.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Which file formats are supported by SaveKaro for downloading purposes?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SaveKaro Downloader is compatible with any device that has an installed browser. It can be accessed from a range of devices such as mobile phones, smartphones, tablets, notebooks, laptops, and personal computers. SaveKaro is also compatible with Mac OS, Windows, iOS, and Linux. It has been thoroughly tested and works seamlessly with a variety of browsers including Chrome, Firefox, Opera, Safari, and Chromium, both on desktop and mobile versions.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Which devices are compatible with SaveKaro Downloader?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SaveKaro Downloader is compatible with any device that has an installed browser. It can be accessed from a range of devices such as mobile phones, smartphones, tablets, notebooks, laptops, and personal computers. SaveKaro is also compatible with Mac OS, Windows, iOS, and Linux. It has been thoroughly tested and works seamlessly with a variety of browsers including Chrome, Firefox, Opera, Safari, and Chromium, both on desktop and mobile versions.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is the process for downloading Instagram photos and videos online?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="font-bold">Nothing easier!</p> <ul> <li>Copy an Instagram photo or video URL</li> <li>Go back to SaveKaro and paste it into the field, and press Download</li> <li>Shortly, you will see the results, pick the quality you need, and download.</li> </ul> </p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is it possible to Download Video and Photo from any Instagram user?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, that's correct! You can download content from public Instagram accounts using <b>SaveKaro</b> Instagram Video Downloader. However, we fully respect the privacy and copyright of Instagram users, so downloading content from private accounts is not possible. We are currently developing a new browser extension for desktop browsers, which will allow you to download private posts directly from Instagram..</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is it legal to download Instagram videos?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SaveKaro is intended for personal use and downloading content you have rights to. Please respect copyright laws and Instagram's Terms of Service.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I download private Instagram content?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, SaveKaro only works with public Instagram content that you can access normally.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you keep copies of downloaded videos?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, we don't store any Instagram content on our servers. Videos are processed in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How to download Instagram Reels with audio?</h3>
+                            <div class="faq-toggle">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Simply paste the Reel URL and choose "Video with Audio" option. The audio will be preserved in your download.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>Save<span>Karo</span></h2>
+                    <p>Your Instagram Video Saver</p>
+                    <p><span class="highlight">Note:- </span>Save karo website is not direct provide the Insta Reel download it gives links of another website to download the video so it is illegal for youtube community </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">YouTube Downloader</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                          <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact US</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@savekaro.com</p>
+                                  <p aria-label="Facebook"><i class="fab fa-facebook"></i></p>
+                        <p aria-label="Twitter"><i class="fab fa-twitter"></i></p>
+                        <p aria-label="Instagram"><i class="fab fa-instagram"></i></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> SaveKaro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="download-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Choose Download Options</h2>
+            <div class="format-options">
+                <div class="format-option">
+                    <h3>Video Formats</h3>
+                    <ul class="video-formats">
+                        <li data-format="mp4-hd">MP4 HD (Highest Quality)</li>
+                        <li data-format="mp4-sd">MP4 Standard</li>
+                        <li data-format="mp4-720">MP4 720p</li>
+                        <li data-format="mp4-480">MP4 480p</li>
+                    </ul>
+                </div>
+                <div class="format-option">
+                    <h3>Other Options</h3>
+                    <ul class="audio-formats">
+                        <li data-format="audio-only">Audio Only (MP3)</li>
+                        <li data-format="no-watermark">No Watermark</li>
+                        <li data-format="with-audio">Video with Audio</li>
+                        <li data-format="thumbnail">Thumbnail Image</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://igram.world/"><button class="btn confirm-download">Start Download</button></a>
+            
+        </div>
+    </div>
+ <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('.nav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Format selection in modal
+        const formatOptions = document.querySelectorAll('.video-formats li, .audio-formats li');
+        
+        formatOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                formatOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mock download functionality
+        const downloadBtn = document.getElementById('download-btn');
+        const downloadModal = document.querySelector('.download-modal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        downloadBtn.addEventListener('click', () => {
+            const url = document.getElementById('instagram-url').value;
+            if (url) {
+                downloadModal.style.display = 'flex';
+            } else {
+                alert('Please enter an Instagram URL');
+            }
+        });
+        
+        closeModal.addEventListener('click', () => {
+            downloadModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === downloadModal) {
+                downloadModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
